@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
-
     const myState = useContext(MyContext);
     const navigate = useNavigate();
 
@@ -16,7 +15,6 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const api = await axios.post(`https://task-app-backend-abza.onrender.com/users/login`, {
                 email,
@@ -42,7 +40,7 @@ function Login() {
             myState.setIsAuthenticated(true);
 
             setTimeout(() => {
-                navigate('/profile')
+                navigate('/')
             }, 1000);
 
 

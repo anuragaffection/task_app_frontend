@@ -1,16 +1,31 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
+import React, { useContext, useEffect, useState } from 'react'
+import MyContext from '../context/MyContext'
+import MyTasks from '../components/MyTasks';
 
 const Home = () => {
+    const myState = useContext(MyContext);
+    const [myTaskState, setMyTaskState] = useState(myState.isAuthenticated);
+
+    useEffect(() => {
+        setMyTaskState(prevState => !prevState)
+    }, [myState.isAuthenticated])
+
+
     const container = `bg-gray-900 text-gray-200 p-4`;
     const wrapper = `flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-7 `;
 
     return (
         <>
             <div className={container}>
-                <div className={wrapper}>
-                </div>
+                {
+                    myTaskState ? (
+                        <div> <MyTasks /> </div>
+                    ) : (
+                        <div className={wrapper}>
+                            <div>Login & Register to Create Task </div>
+                        </div>
+                    )
+                }
             </div >
         </>
     )

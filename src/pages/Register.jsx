@@ -66,7 +66,6 @@ function Register() {
 
             myState.setIsAuthenticated(false);
         }
-
     }
 
     const container = `bg-gray-900 text-gray-200 p-4`;
@@ -78,10 +77,8 @@ function Register() {
     const inputStyle = `bg-gray-700 h-12 p-3 rounded-lg`;
     const submitButton = `text-gray-900 h-12 rounded-lg bg-lime-500 hover:bg-lime-400`
 
-
     return (
         <>
-
             <ToastContainer
                 position="top-right"
                 autoClose={1500}
@@ -94,7 +91,6 @@ function Register() {
                 pauseOnHover
                 theme="dark"
             />
-
 
             <div className={container}>
                 <div className={wrapper}>

@@ -21,7 +21,7 @@ function ViewTask() {
                     <div> {accessingTask.singleTask.dueDate}</div>
                     <div className={descriptionStyle}> {accessingTask.singleTask.description}</div>
                     <div className={readMoreStyle}>
-                        <Link to={"/profile"}>Back</Link>
+                        <Link to={"/"}>Back</Link>
                     </div>
                 </div>
             </div>

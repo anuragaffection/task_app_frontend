@@ -6,7 +6,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import MyContext from '../context/MyContext';
 import axios from 'axios';
-import MyTasks from '../components/MyTasks';
 
 
 const Profile = () => {
@@ -79,7 +78,6 @@ const Profile = () => {
 
       <div className={container}>
         <div className={wrapper}>
-          
           <div className={iconsStyle}> <BiSolidUserCircle /> {" "} {myState.user.name}</div>
           <div className={iconsStyle}> <MdEmail /> {" "} {myState.user.email}</div>
           {
@@ -87,7 +85,6 @@ const Profile = () => {
             <div className={logoutStyle} onClick={logout}> <BiLogOut /> Logout </div>
           }
         </div>
-        <div><MyTasks /></div>
       </div >
     </>
   )
