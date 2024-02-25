@@ -8,7 +8,7 @@ import MyContext from '../context/MyContext'
 
 function MyTasks() {
 
-    const [Task, setTask] = useState([]); 
+    const [task, setTask] = useState([]);
     const myState = useContext(MyContext);
     const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ function MyTasks() {
 
 
     const deleteTask = async (id) => {
-        const api = await axios.delete(`https://task-app-backend-abza.onrender.com/tasks/task/${id}`, {
+        const api = await axios.delete(`https://task-app-backend-abza.onrender.com/tasks/${id}`, {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -77,7 +77,7 @@ function MyTasks() {
             <div className={container}>
                 <div className={wrapper}>
                     {
-                        Task && Task.map((data) => {
+                        task && task.map((data) => {
                             return (
                                 <div className={dataWrapper} key={data._id}>
                                     <ToastContainer
@@ -107,17 +107,18 @@ function MyTasks() {
                                     </div>
 
                                     <div className={buttonWrapper}>
-                                        <button className={viewButton}>
-                                            <Link
-                                                to={"/viewTask"}
-                                                onClick={() => {
-                                                    myState.setSingleTask(data);
-                                                    scrollToTop();
-                                                }}
-                                            >
+                                        <Link
+                                            to={"/viewTask"}
+                                            onClick={() => {
+                                                myState.setSingleTask(data);
+                                                scrollToTop();
+                                            }}
+                                        >
+                                            <button className={viewButton}>
                                                 View
-                                            </Link>
-                                        </button>
+                                            </button>
+                                        </Link>
+
                                         <button
                                             onClick={() => editTask(data._id)}
                                             className={editButton}>
@@ -135,7 +136,14 @@ function MyTasks() {
                         })
                     }
                 </div >
-            </div>
+                <div>
+                    {
+                        task.length === 0 && (
+                            <div> Create Your First Task!</div>
+                        )
+                    }
+                </div>
+            </div >
         </>
     )
 }

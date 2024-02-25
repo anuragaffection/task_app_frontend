@@ -32,6 +32,6 @@ export default MyState
 
 
 // const [isAuthenticated, setIsAuthenticated] = protected routing 
-// const [user, setUser] = 
-// const [id, setId] = 
-// const [singleTask, setSingleTask] = 
+// const [user, setUser] = storing user name & email 
+// const [id, setId] = used for updating & deleting task 
+// const [singleTask, setSingleTask] = viewing single task in details 

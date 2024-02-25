@@ -16,11 +16,11 @@ function Navbar() {
         });
     };
 
-    const navbarContainer = `flex justify-around bg-black text-lime-500 text-lg w-full flex-col md:flex-row p-4 gap-2 sticky top-0`;
+    const navbarContainer = `flex justify-around items-center gap-2 p-4 text-lime-500 text-lg bg-black w-full sticky top-0`;
     const logo = ` text-xl font-semibold text-yellow-400`;
     const logoImg = 'rounded-full'
-    const logoWrapper = `flex justify-center items-center gap-2 ml-4 mt-2 md:mt-0`
-    const nav = `flex justify-center items-center list-none gap-4 md:gap-8 mr-0 md:mr-4 xl:mr-8 mb-2 md:mb-0 mt-2 md:mt-0`;
+    const logoWrapper = `flex justify-center items-center gap-2`
+    const nav = `flex justify-center items-center list-none gap-4 md:gap-16 `;
     const navLink = `hover:text-lime-300 md:text-xl text-lg font-semibold`;
 
     return (
@@ -53,7 +53,10 @@ function Navbar() {
                 </Link>
 
                 <div className={nav}>
-                    
+                    {
+                        (auth.isAuthenticated) &&
+                        <Link to={'/'}><li className={navLink} onClick={scrollToTop}> Tasks </li></Link>
+                    }
                     {
                         (!auth.isAuthenticated) &&
                         <Link to={'/login'}><li className={navLink} onClick={scrollToTop}>Login </li></Link>
@@ -64,7 +67,7 @@ function Navbar() {
                     }
                     {
                         (auth.isAuthenticated) &&
-                        <Link to={'/addtask'}><li className={navLink} onClick={scrollToTop}>Add Task </li></Link>
+                        <Link to={'/addtask'}><li className={navLink} onClick={scrollToTop}>Add </li></Link>
                     }
                     {
                         (auth.isAuthenticated) &&
@@ -78,7 +81,3 @@ function Navbar() {
 }
 
 export default Navbar
-
-
-
-{/* <Link to={'/'}><li className={navLink} onClick={scrollToTop}>Home </li></Link> */}

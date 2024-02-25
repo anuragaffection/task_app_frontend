@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { BiSolidUserCircle, BiLogOut } from 'react-icons/bi';
-import { MdEmail} from 'react-icons/md';
+import { MdEmail } from 'react-icons/md';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import MyContext from '../context/MyContext';
@@ -20,7 +20,6 @@ const Profile = () => {
         },
         withCredentials: true,
       });
-      // console.log(api.data.user);
       myState.setUser(api.data.user)
       myState.setIsAuthenticated(true);
     }
@@ -57,8 +56,8 @@ const Profile = () => {
 
   const container = `bg-gray-900 flex flex-col justify-center items-center`;
   const wrapper = `flex flex-col gap-3 text-yellow-400 font-semibold m-4`;
-  const iconsStyle = `flex flex-row gap-2`;
-  const logoutStyle = `text-lime-500 hover:text-lime-300 text-lg font-semibold flex flex-row gap-2`;
+  const iconsStyle = `flex flex-row justify-start items-center gap-2 `;
+  const logoutStyle = `bg-gray-950 text-lime-600 text-lg font-semibold flex justify-center items-center  cursor-pointer hover:text-lime-400 p-2 rounded-md`;
 
 
   return (
@@ -75,7 +74,6 @@ const Profile = () => {
         pauseOnHover
         theme="dark"
       />
-
       <div className={container}>
         <div className={wrapper}>
           <div className={iconsStyle}> <BiSolidUserCircle /> {" "} {myState.user.name}</div>

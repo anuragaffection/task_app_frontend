@@ -201,9 +201,9 @@ function AddTask() {
                                 type="text"
                                 id='descriptionText'
                                 className={inputStyleTextArea}
-                                rows={12}
+                                rows={10}
                                 cols={50}
-                                placeholder='Message'
+                                placeholder='Todo or Task List'
                             >
                             </textarea>
                         </div>

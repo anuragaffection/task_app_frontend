@@ -4,13 +4,7 @@ import MyTasks from '../components/MyTasks';
 
 const Home = () => {
     const myState = useContext(MyContext);
-    const [myTaskState, setMyTaskState] = useState(myState.isAuthenticated);
-
-    useEffect(() => {
-        setMyTaskState(prevState => !prevState)
-    }, [myState.isAuthenticated])
-
-
+    
     const container = `bg-gray-900 text-gray-200 p-4`;
     const wrapper = `flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-7 `;
 
@@ -18,7 +12,7 @@ const Home = () => {
         <>
             <div className={container}>
                 {
-                    myTaskState ? (
+                    myState.isAuthenticated === true ? (
                         <div> <MyTasks /> </div>
                     ) : (
                         <div className={wrapper}>

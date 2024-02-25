@@ -9,20 +9,7 @@ import ViewTask from './pages/ViewTask'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
-
 function App() {
-  // const navigate = useNavigate();
-  // const myState = useContext(MyContext);
-
-  // useEffect(() => {
-  //   if (!myState.isAuthenticated) {
-  //     navigate('/')
-  //   }
-  //   else {
-  //     navigate('/profile')
-  //   }
-  // }, [myState.isAuthenticated])
-
   return (
     <>
       <Navbar />
